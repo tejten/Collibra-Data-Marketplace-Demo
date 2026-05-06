@@ -371,11 +371,15 @@ If your environment does not show that section, skip this for now and rely on at
 
 This is optional for the first demo. It helps you tell the "data product" story while keeping the data basket simple.
 
-Create these as `Data Product` assets in `OSINT Data Product Catalog`:
+The requestable assets you already imported as `Data Set` assets are what users add to the data basket. The wrapper assets in this section are higher-level `Data Product` assets that explain the reusable mission package.
 
-- `Public Infrastructure Event Feed - Curated`
-- `Source Reliability Scorecard`
-- `Geospatial Situation Features - Aggregated`
+Fast path: import `collibra_import/07_data_product_wrappers.csv` into the `OSINT Data Product Catalog` domain.
+
+Create or import these as `Data Product` assets:
+
+- `Public Infrastructure Event Feed Product`
+- `Source Reliability Scorecard Product`
+- `Geospatial Situation Features Product`
 
 For each Data Product:
 
@@ -383,6 +387,14 @@ For each Data Product:
 2. Relate it to the matching requestable `Data Set`.
 3. Add owners and stewards.
 4. Add tags.
+
+Suggested relationships:
+
+| Data Product wrapper | Requestable Data Set |
+| --- | --- |
+| `Public Infrastructure Event Feed Product` | `Public Infrastructure Event Feed - Curated` |
+| `Source Reliability Scorecard Product` | `Source Reliability Scorecard` |
+| `Geospatial Situation Features Product` | `Geospatial Situation Features - Aggregated` |
 
 In the live demo, say: "The Data Product is the business-facing package; the requestable output is represented as a Data Set in the basket."
 

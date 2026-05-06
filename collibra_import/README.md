@@ -10,8 +10,9 @@ Import order:
 4. `04_data_contracts.csv`
 5. `05_technical_tables.csv`
 6. `06_columns.csv`
+7. `07_data_product_wrappers.csv`
 
-For a first demo, files 1-3 are enough. Files 4-6 add depth for contracts and technical lineage.
+For a first demo, files 1-3 are enough. Files 4-7 add depth for contracts, technical lineage, and the data-product wrapper story.
 
 Use Collibra's asset import from a domain or asset view. Map the core columns:
 
@@ -24,4 +25,3 @@ Use Collibra's asset import from a domain or asset view. Map the core columns:
 - `Description` or `Definition` -> description/definition attribute
 
 Do not map helper columns such as `Owner`, `Steward`, `Reviewer`, `Tags`, `File To Attach`, `Sample File`, or `Demo Talking Point` during the first import unless your view already has matching columns. Use them as a checklist for manual enrichment after import.
-

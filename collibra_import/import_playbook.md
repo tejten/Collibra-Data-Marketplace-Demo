@@ -8,8 +8,9 @@ Use these files instead of the original `asset_inventory.csv` for the first Coll
 - `04_data_contracts.csv`
 - `05_technical_tables.csv`
 - `06_columns.csv`
+- `07_data_product_wrappers.csv`
 
-For a first working marketplace demo, import only files 1-3. Files 4-6 add polish later.
+For a first working marketplace demo, import only files 1-3. Files 4-7 add polish later.
 
 ## Before You Import
 
@@ -188,6 +189,42 @@ Map:
 
 Leave `Parent Table` unmapped in the first pass unless your view has a table/column relation available. Add table-column relations manually later if you want lineage polish.
 
+## Optional Import 7: Data Product Wrappers
+
+File:
+
+`07_data_product_wrappers.csv`
+
+Target domain:
+
+`Open Source Intelligence Demo` -> `OSINT Data Product Catalog`
+
+Map:
+
+- `Full Name` -> asset full name
+- `Name` -> asset name or display name
+- `Asset Type` -> asset type
+- `Domain` -> domain
+- `Community` -> community
+- `Status` -> status
+- `Description` -> description attribute
+
+Leave `Tags`, `Related Requestable Data Set`, and `Demo Talking Point` unmapped in the first pass.
+
+Expected assets:
+
+- `Public Infrastructure Event Feed Product`
+- `Source Reliability Scorecard Product`
+- `Geospatial Situation Features Product`
+
+After import, manually relate each Data Product to its requestable Data Set:
+
+- `Public Infrastructure Event Feed Product` -> `Public Infrastructure Event Feed - Curated`
+- `Source Reliability Scorecard Product` -> `Source Reliability Scorecard`
+- `Geospatial Situation Features Product` -> `Geospatial Situation Features - Aggregated`
+
+These wrapper assets are not required for the data basket. They are for the demo narrative: the Data Product is the business-facing package, and the Data Set is the requestable output.
+
 ## After the First Three Imports
 
 Open each imported Data Set and manually add:
@@ -230,4 +267,3 @@ Problem: Attribute columns do not appear in the mapping dialog.
 - Skip them.
 - Import only the basic asset shell first.
 - Add descriptions, tags, responsibilities, and attachments manually on the asset page.
-
