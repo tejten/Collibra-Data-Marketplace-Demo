@@ -11,8 +11,9 @@ Import order:
 5. `05_technical_tables.csv`
 6. `06_columns.csv`
 7. `07_data_product_wrappers.csv`
+8. `08_data_product_ports.csv`
 
-For a first demo, files 1-3 are enough. Files 4-7 add depth for contracts, technical lineage, and the data-product wrapper story.
+For a first demo, files 1-3 are enough. Files 4-8 add depth for contracts, technical lineage, and the data-product wrapper story.
 
 Use Collibra's asset import from a domain or asset view. Map the core columns:
 

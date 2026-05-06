@@ -384,17 +384,28 @@ Create or import these as `Data Product` assets:
 For each Data Product:
 
 1. Paste the product-card copy from `marketplace_listings.md`.
-2. Relate it to the matching requestable `Data Set`.
+2. Create or import a matching `Data Product Port`.
+3. Relate the Data Product to the Data Product Port with the output-port relation.
+4. Relate the Data Product Port to the matching requestable `Data Set` if your operating model allows it.
 3. Add owners and stewards.
 4. Add tags.
 
-Suggested relationships:
+Fast path for ports: import `collibra_import/08_data_product_ports.csv` into the `OSINT Data Product Catalog` domain.
 
-| Data Product wrapper | Requestable Data Set |
-| --- | --- |
-| `Public Infrastructure Event Feed Product` | `Public Infrastructure Event Feed - Curated` |
-| `Source Reliability Scorecard Product` | `Source Reliability Scorecard` |
-| `Geospatial Situation Features Product` | `Geospatial Situation Features - Aggregated` |
+Suggested wrapper and port relationships:
+
+| Data Product wrapper | Output Port | Requestable Data Set |
+| --- | --- | --- |
+| `Public Infrastructure Event Feed Product` | `Public Infrastructure Event Feed Output Port` | `Public Infrastructure Event Feed - Curated` |
+| `Source Reliability Scorecard Product` | `Source Reliability Scorecard Output Port` | `Source Reliability Scorecard` |
+| `Geospatial Situation Features Product` | `Geospatial Situation Features Output Port` | `Geospatial Situation Features - Aggregated` |
+
+Manual relationship pattern:
+
+1. The Data Product `exposes data as` the Data Product Port.
+2. The Data Product Port `is implemented as` the output asset.
+
+If Collibra does not let you choose a `Data Set` as the implemented output asset, use the matching `Table` asset from `OSINT Technical Sample Assets`, or skip the final port-to-output relation for the first demo. The core marketplace basket flow still works from the requestable Data Sets.
 
 In the live demo, say: "The Data Product is the business-facing package; the requestable output is represented as a Data Set in the basket."
 

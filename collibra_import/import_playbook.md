@@ -9,8 +9,9 @@ Use these files instead of the original `asset_inventory.csv` for the first Coll
 - `05_technical_tables.csv`
 - `06_columns.csv`
 - `07_data_product_wrappers.csv`
+- `08_data_product_ports.csv`
 
-For a first working marketplace demo, import only files 1-3. Files 4-7 add polish later.
+For a first working marketplace demo, import only files 1-3. Files 4-8 add polish later.
 
 ## Before You Import
 
@@ -224,6 +225,51 @@ After import, manually relate each Data Product to its requestable Data Set:
 - `Geospatial Situation Features Product` -> `Geospatial Situation Features - Aggregated`
 
 These wrapper assets are not required for the data basket. They are for the demo narrative: the Data Product is the business-facing package, and the Data Set is the requestable output.
+
+## Optional Import 8: Data Product Ports
+
+File:
+
+`08_data_product_ports.csv`
+
+Target domain:
+
+`Open Source Intelligence Demo` -> `OSINT Data Product Catalog`
+
+Map:
+
+- `Full Name` -> asset full name
+- `Name` -> asset name or display name
+- `Asset Type` -> asset type
+- `Domain` -> domain
+- `Community` -> community
+- `Status` -> status
+- `Description` -> description attribute
+- `Access Method` -> access method attribute, if available
+- `Access Instructions` -> access instructions attribute, if available
+
+Leave `Parent Data Product` and `Implemented Output Asset` unmapped in the first pass. Use them as a manual relationship checklist.
+
+Expected assets:
+
+- `Public Infrastructure Event Feed Output Port`
+- `Source Reliability Scorecard Output Port`
+- `Geospatial Situation Features Output Port`
+
+Manual relationship pattern:
+
+1. Data Product `exposes data as` Data Product Port.
+2. Data Product Port `is implemented as` the output asset.
+
+For this demo:
+
+| Data Product | Output Port | Output asset |
+| --- | --- | --- |
+| `Public Infrastructure Event Feed Product` | `Public Infrastructure Event Feed Output Port` | `Public Infrastructure Event Feed - Curated` |
+| `Source Reliability Scorecard Product` | `Source Reliability Scorecard Output Port` | `Source Reliability Scorecard` |
+| `Geospatial Situation Features Product` | `Geospatial Situation Features Output Port` | `Geospatial Situation Features - Aggregated` |
+
+If Collibra does not let you select a Data Set as the implemented output asset, link the port to the matching Table asset instead, or skip this final relation for the demo.
 
 ## After the First Three Imports
 
