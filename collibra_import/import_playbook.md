@@ -250,6 +250,8 @@ Map:
 
 Leave `Parent Data Product` and `Implemented Output Asset` unmapped in the first pass. Use them as a manual relationship checklist.
 
+Use `UI` for `Access Method`. Collibra only accepts these values for that field: `API`, `MCP`, `SQL`, and `UI`. The "Data Marketplace basket" wording belongs in `Access Instructions`, not in `Access Method`.
+
 Expected assets:
 
 - `Public Infrastructure Event Feed Output Port`
