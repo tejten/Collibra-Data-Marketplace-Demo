@@ -1,0 +1,5 @@
+Full Name,Name,Asset Type,Domain,Community,Status,Description,Sample File
+osint_public_event_feed,osint_public_event_feed,Table,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,Synthetic table representation of the curated public infrastructure event feed.,sample_data/public_event_feed.csv
+osint_source_registry,osint_source_registry,Table,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,Synthetic table representation of the OSINT source registry.,sample_data/source_registry.csv
+osint_media_signal_extracts,osint_media_signal_extracts,Table,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,Synthetic table representation of derived media signal extracts.,sample_data/media_signal_extracts.csv
+osint_geospatial_aggregates,osint_geospatial_aggregates,Table,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,Synthetic table representation of aggregated geospatial features.,sample_data/geospatial_aggregates.csv

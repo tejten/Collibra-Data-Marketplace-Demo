@@ -296,6 +296,14 @@ Do not edit the workflow for the first build.
 
 ## 13. Create Requestable Marketplace Assets
 
+Fast path: use the prepared import files in `collibra_import/` and follow `collibra_import/import_playbook.md`. Import files 1-3 first:
+
+- `01_marketplace_data_sets.csv`
+- `02_restricted_data_sets.csv`
+- `03_business_terms.csv`
+
+Then return here to add tags, responsibilities, attachments, and relationships manually.
+
 Create these as `Data Set` assets in the `OSINT Marketplace Products` domain.
 
 Use plus/create -> asset/data asset -> `Data Set`.

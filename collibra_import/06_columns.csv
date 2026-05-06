@@ -1,0 +1,26 @@
+Full Name,Name,Asset Type,Domain,Community,Status,Parent Table,Description
+osint_public_event_feed > event_id,event_id,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_public_event_feed,Stable event identifier.
+osint_public_event_feed > event_date,event_date,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_public_event_feed,Date the event was observed or reported.
+osint_public_event_feed > region,region,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_public_event_feed,Synthetic reporting region.
+osint_public_event_feed > event_type,event_type,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_public_event_feed,Normalized disruption category.
+osint_public_event_feed > severity,severity,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_public_event_feed,Normalized severity label.
+osint_public_event_feed > confidence,confidence,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_public_event_feed,Analytic confidence based on source quality and corroboration.
+osint_public_event_feed > primary_source_id,primary_source_id,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_public_event_feed,Link to OSINT Source Registry.
+osint_source_registry > source_id,source_id,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_source_registry,Stable source identifier.
+osint_source_registry > source_name,source_name,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_source_registry,Human-readable source name.
+osint_source_registry > source_category,source_category,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_source_registry,Official bulletin media NGO government portal or public web category.
+osint_source_registry > license_family,license_family,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_source_registry,License or terms family governing reuse.
+osint_source_registry > allowed_use,allowed_use,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_source_registry,Steward-approved use summary.
+osint_source_registry > source_reliability_score,source_reliability_score,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_source_registry,Steward-reviewed source reliability score.
+osint_media_signal_extracts > signal_id,signal_id,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_media_signal_extracts,Stable media signal identifier.
+osint_media_signal_extracts > event_id,event_id,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_media_signal_extracts,Related event identifier.
+osint_media_signal_extracts > entity_text,entity_text,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_media_signal_extracts,Extracted entity string.
+osint_media_signal_extracts > entity_type,entity_type,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_media_signal_extracts,Extracted entity category.
+osint_media_signal_extracts > topic,topic,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_media_signal_extracts,Normalized topic signal.
+osint_media_signal_extracts > extraction_confidence,extraction_confidence,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_media_signal_extracts,Extraction confidence score.
+osint_geospatial_aggregates > grid_id,grid_id,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_geospatial_aggregates,Stable grid identifier.
+osint_geospatial_aggregates > region,region,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_geospatial_aggregates,Synthetic reporting region.
+osint_geospatial_aggregates > date,date,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_geospatial_aggregates,Aggregation date.
+osint_geospatial_aggregates > event_count,event_count,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_geospatial_aggregates,Number of events in the region/date bucket.
+osint_geospatial_aggregates > hazard_score,hazard_score,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_geospatial_aggregates,Synthetic regional hazard score.
+osint_geospatial_aggregates > aggregation_level,aggregation_level,Column,OSINT Technical Sample Assets,Open Source Intelligence Demo,Accepted,osint_geospatial_aggregates,Spatial or administrative aggregation level.

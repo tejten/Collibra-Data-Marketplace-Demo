@@ -1,0 +1,3 @@
+Full Name,Name,Asset Type,Domain,Community,Status,Description,Related Data Set,File To Attach
+Public Infrastructure Event Feed Contract,Public Infrastructure Event Feed Contract,Data Contract,OSINT Governance and Contracts,Open Source Intelligence Demo,Accepted,Contract for the requestable Data Set Public Infrastructure Event Feed - Curated.,Public Infrastructure Event Feed - Curated,data_contracts/public_event_feed_contract.yaml
+Source Reliability Scorecard Contract,Source Reliability Scorecard Contract,Data Contract,OSINT Governance and Contracts,Open Source Intelligence Demo,Accepted,Contract for the requestable Data Set Source Reliability Scorecard.,Source Reliability Scorecard,data_contracts/source_reliability_scorecard_contract.yaml
