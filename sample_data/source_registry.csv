@@ -1,0 +1,9 @@
+source_id,source_name,source_category,collection_method,license_family,allowed_use,refresh_cadence,coverage_region,language,owner_team,classification,source_reliability_score,last_reviewed
+SRC-001,Coastal Port Authority Bulletin,Official Public Bulletin,RSS/API,Public sector open notice,"Internal analysis; cite source",Hourly,Coastal Region,en,OSINT Source Governance,PUBLIC_METADATA,96,2026-04-28
+SRC-002,Regional Weather Alert Service,Official Public Alert,RSS/API,Public sector open data,"Internal analysis; external redistribution with attribution",Hourly,Coastal Region,en,OSINT Source Governance,PUBLIC_METADATA,98,2026-04-28
+SRC-003,Transit Operations Public Feed,Official Public Feed,API,Open data license,"Internal analysis; dashboard display permitted",Every 15 minutes,Metro Region,en,OSINT Source Governance,PUBLIC_METADATA,94,2026-04-27
+SRC-004,Humanitarian Access Advisory,NGO Public Report,Web publication,Attribution required,"Internal analysis; cite source; no full-text redistribution",Daily,Border Region,en,OSINT Source Governance,LICENSE_RESTRICTED,88,2026-04-25
+SRC-005,Regional Business News Wire,Media,Licensed feed,Commercial license,"Metadata and derived signals only",Every 4 hours,National,en,Media Stewardship,LICENSE_RESTRICTED,84,2026-04-24
+SRC-006,Multilingual Public Media Monitor,Media,Licensed feed,Commercial license,"Derived signals only; no article text redistribution",Every 4 hours,National,multi,Media Stewardship,LICENSE_RESTRICTED,82,2026-04-24
+SRC-007,Public Procurement Notice Board,Government Portal,API,Public sector open data,"Internal analysis; cite source",Daily,National,en,Reference Data Team,PUBLIC_METADATA,92,2026-04-26
+SRC-008,Public Web Mentions Sandbox,Public Web,Controlled collection,Mixed terms,"Restricted validation only; no individual profiling",Near real time,National,multi,Privacy Review Team,RESTRICTED,70,2026-04-20

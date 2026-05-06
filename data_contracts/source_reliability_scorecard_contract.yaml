@@ -1,0 +1,76 @@
+apiVersion: v3.0.2
+kind: DataContract
+id: osint.source_reliability.scorecard
+name: Source Reliability Scorecard
+version: 1.0.0
+status: active
+domain: Public Source Trust Framework
+description: Internal scorecard for explaining source reliability, corroboration behavior, timeliness, and steward review.
+owner:
+  name: Jordan Lee
+  role: Data Product Owner
+steward:
+  name: Rafael Ortiz
+  role: Data Steward
+classification:
+  - INTERNAL
+  - TRADECRAFT_SENSITIVE
+servers:
+  demo:
+    type: local
+    path: ../sample_data/source_registry.csv
+terms:
+  usage: Approved for trained analysts and stewards to support confidence assessment and source comparison.
+  limitations:
+    - Do not expose score calculation details outside approved channels.
+    - Use scores as decision support, not as a sole determinant of truth.
+    - Preserve review date in downstream products.
+schema:
+  - name: source_id
+    type: string
+    required: true
+    description: Stable source identifier.
+  - name: source_name
+    type: string
+    required: true
+    description: Human-readable source name.
+  - name: source_category
+    type: string
+    required: true
+    description: Official bulletin, media, NGO report, government portal, or public web category.
+  - name: license_family
+    type: string
+    required: true
+    description: License or terms family governing reuse.
+  - name: allowed_use
+    type: string
+    required: true
+    description: Steward-approved use summary.
+  - name: source_reliability_score
+    type: integer
+    required: true
+    minimum: 0
+    maximum: 100
+    description: Steward-reviewed source reliability score.
+  - name: last_reviewed
+    type: date
+    required: true
+    description: Date of most recent steward review.
+quality:
+  - rule: reliability_score_range
+    description: source_reliability_score must be between 0 and 100.
+    dimension: validity
+    threshold: 1.0
+  - rule: recent_review
+    description: last_reviewed should be within 90 days for active sources.
+    dimension: timeliness
+    threshold: 0.95
+  - rule: allowed_use_present
+    description: allowed_use must be populated for every source.
+    dimension: completeness
+    threshold: 1.0
+slo:
+  refreshCadence: Weekly
+  availability: 99.0%
+  incidentContact: osint-data-stewards@example.demo
+

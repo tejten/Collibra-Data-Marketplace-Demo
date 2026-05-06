@@ -1,0 +1,13 @@
+event_id,event_date,region,event_type,summary,severity,confidence,corroboration_count,primary_source_id,source_reliability_score,lat_band,lon_band,pii_present,license_caveat
+EVT-20260501-001,2026-05-01,Coastal Region,Port Delay,Public bulletin reports container processing delays at North Harbor terminal,Medium,High,3,SRC-001,96,34.0-34.5,-77.5--77.0,false,Cite source
+EVT-20260501-002,2026-05-01,Metro Region,Transit Interruption,Transit feed reports partial rail service suspension on central line,Medium,High,2,SRC-003,94,35.0-35.5,-78.0--77.5,false,Display permitted
+EVT-20260501-003,2026-05-01,Border Region,Road Closure,Humanitarian advisory notes temporary closure of Route B12 near checkpoint area,High,Medium,2,SRC-004,88,36.0-36.5,-79.5--79.0,false,Cite source; no full-text redistribution
+EVT-20260502-004,2026-05-02,Coastal Region,Weather Disruption,Weather alert indicates high winds affecting ferry and small-vessel traffic,Medium,High,4,SRC-002,98,34.5-35.0,-77.0--76.5,false,Attribution required
+EVT-20260502-005,2026-05-02,Industrial Corridor,Power Interruption,Public utility notice reports planned substation maintenance window,Low,High,2,SRC-007,92,35.5-36.0,-78.5--78.0,false,Cite source
+EVT-20260502-006,2026-05-02,Metro Region,Public Gathering,Multiple public reports indicate planned demonstration near central station,Medium,Medium,3,SRC-005,84,35.0-35.5,-78.0--77.5,false,Derived signals only
+EVT-20260503-007,2026-05-03,Coastal Region,Port Delay,Follow-up bulletin reports backlog reduced at North Harbor terminal,Low,High,3,SRC-001,96,34.0-34.5,-77.5--77.0,false,Cite source
+EVT-20260503-008,2026-05-03,Border Region,Access Constraint,NGO advisory notes limited access to two rural crossings due to flooding,High,Medium,2,SRC-004,88,36.5-37.0,-79.5--79.0,false,Cite source; no full-text redistribution
+EVT-20260503-009,2026-05-03,Metro Region,Transit Restoration,Transit feed reports restoration of central line service after inspection,Low,High,2,SRC-003,94,35.0-35.5,-78.0--77.5,false,Display permitted
+EVT-20260504-010,2026-05-04,Industrial Corridor,Supply Constraint,Procurement notices indicate delayed delivery for grid maintenance components,Medium,Medium,2,SRC-007,92,35.5-36.0,-78.5--78.0,false,Cite source
+EVT-20260504-011,2026-05-04,Coastal Region,Weather Disruption,Public weather service issues coastal flood advisory for low-lying roads,High,High,4,SRC-002,98,34.5-35.0,-77.0--76.5,false,Attribution required
+EVT-20260504-012,2026-05-04,National,Information Integrity,Aggregated public media signals show increased misleading claims about port closure duration,Medium,Medium,3,SRC-006,82,NA,NA,false,Derived signals only

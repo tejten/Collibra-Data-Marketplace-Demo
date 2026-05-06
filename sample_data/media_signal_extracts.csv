@@ -1,0 +1,13 @@
+signal_id,event_id,source_id,published_date,language,entity_text,entity_type,topic,region,extraction_confidence,source_citation_required,full_text_stored
+SIG-001,EVT-20260501-001,SRC-005,2026-05-01,en,North Harbor terminal,Facility,Port operations,Coastal Region,0.91,true,false
+SIG-002,EVT-20260501-001,SRC-006,2026-05-01,es,Coastal Port Authority,Organization,Port operations,Coastal Region,0.88,true,false
+SIG-003,EVT-20260501-002,SRC-003,2026-05-01,en,central line,Transit Route,Transit interruption,Metro Region,0.95,true,false
+SIG-004,EVT-20260501-003,SRC-004,2026-05-01,en,Route B12,Transport Route,Road closure,Border Region,0.86,true,false
+SIG-005,EVT-20260502-004,SRC-002,2026-05-02,en,coastal ferry service,Service,Weather disruption,Coastal Region,0.9,true,false
+SIG-006,EVT-20260502-005,SRC-007,2026-05-02,en,Substation A4,Infrastructure,Power maintenance,Industrial Corridor,0.83,true,false
+SIG-007,EVT-20260502-006,SRC-005,2026-05-02,en,central station,Facility,Public gathering,Metro Region,0.79,true,false
+SIG-008,EVT-20260503-008,SRC-004,2026-05-03,en,rural crossings,Transport Route,Access constraint,Border Region,0.81,true,false
+SIG-009,EVT-20260504-010,SRC-007,2026-05-04,en,grid maintenance components,Supply Item,Supply constraint,Industrial Corridor,0.84,true,false
+SIG-010,EVT-20260504-011,SRC-002,2026-05-04,en,low-lying roads,Transport Route,Coastal flooding,Coastal Region,0.92,true,false
+SIG-011,EVT-20260504-012,SRC-006,2026-05-04,fr,port closure duration,Narrative Theme,Information integrity,National,0.77,true,false
+SIG-012,EVT-20260504-012,SRC-006,2026-05-04,en,North Harbor,Narrative Entity,Information integrity,National,0.8,true,false

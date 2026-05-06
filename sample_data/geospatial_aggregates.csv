@@ -1,0 +1,13 @@
+grid_id,region,date,event_count,high_severity_count,max_severity,hazard_score,source_count,dominant_event_type,aggregation_level,person_level_location_present
+GRID-COA-01,Coastal Region,2026-05-01,1,0,Medium,54,3,Port Delay,0.5 degree grid,false
+GRID-MET-01,Metro Region,2026-05-01,1,0,Medium,49,2,Transit Interruption,0.5 degree grid,false
+GRID-BOR-02,Border Region,2026-05-01,1,1,High,71,2,Road Closure,0.5 degree grid,false
+GRID-COA-01,Coastal Region,2026-05-02,1,0,Medium,58,4,Weather Disruption,0.5 degree grid,false
+GRID-IND-01,Industrial Corridor,2026-05-02,1,0,Low,31,2,Power Interruption,0.5 degree grid,false
+GRID-MET-01,Metro Region,2026-05-02,1,0,Medium,51,3,Public Gathering,0.5 degree grid,false
+GRID-COA-01,Coastal Region,2026-05-03,1,0,Low,36,3,Port Delay,0.5 degree grid,false
+GRID-BOR-03,Border Region,2026-05-03,1,1,High,76,2,Access Constraint,0.5 degree grid,false
+GRID-MET-01,Metro Region,2026-05-03,1,0,Low,28,2,Transit Restoration,0.5 degree grid,false
+GRID-IND-01,Industrial Corridor,2026-05-04,1,0,Medium,55,2,Supply Constraint,0.5 degree grid,false
+GRID-COA-02,Coastal Region,2026-05-04,1,1,High,79,4,Weather Disruption,0.5 degree grid,false
+GRID-NAT-01,National,2026-05-04,1,0,Medium,46,3,Information Integrity,National aggregate,false

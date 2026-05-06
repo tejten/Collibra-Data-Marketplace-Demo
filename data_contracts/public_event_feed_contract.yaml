@@ -1,0 +1,92 @@
+apiVersion: v3.0.2
+kind: DataContract
+id: osint.public_infrastructure_event_feed.curated
+name: Public Infrastructure Event Feed - Curated
+version: 1.0.0
+status: active
+domain: Crisis Monitoring Starter Kit
+description: Curated synthetic public-source event feed for infrastructure disruption awareness.
+owner:
+  name: Jordan Lee
+  role: Data Product Owner
+steward:
+  name: Rafael Ortiz
+  role: Data Steward
+classification:
+  - PUBLIC
+  - AGGREGATED
+  - NO_RAW_PERSONAL_DATA
+servers:
+  demo:
+    type: local
+    path: ../sample_data/public_event_feed.csv
+terms:
+  usage: Approved mission analysis, reporting, and dashboarding with source caveats preserved.
+  limitations:
+    - No individual profiling.
+    - Cite source registry identifiers in downstream intelligence products.
+    - Do not combine with restricted raw mentions unless separately approved.
+schema:
+  - name: event_id
+    type: string
+    required: true
+    description: Stable event identifier.
+  - name: event_date
+    type: date
+    required: true
+    description: Date the event was observed or reported.
+  - name: region
+    type: string
+    required: true
+    description: Synthetic reporting region.
+  - name: event_type
+    type: string
+    required: true
+    description: Normalized disruption category.
+  - name: summary
+    type: string
+    required: true
+    description: Short analyst-readable event summary.
+  - name: severity
+    type: string
+    required: true
+    enum: [Low, Medium, High]
+    description: Normalized severity label.
+  - name: confidence
+    type: string
+    required: true
+    enum: [Low, Medium, High]
+    description: Analytic confidence based on source quality and corroboration.
+  - name: corroboration_count
+    type: integer
+    required: true
+    minimum: 1
+    description: Count of independent source families supporting the event.
+  - name: primary_source_id
+    type: string
+    required: true
+    description: Link to OSINT Source Registry.
+  - name: source_reliability_score
+    type: integer
+    required: true
+    minimum: 0
+    maximum: 100
+    description: Reliability score for primary source at publication time.
+quality:
+  - rule: event_id_unique
+    description: event_id must be unique.
+    dimension: uniqueness
+    threshold: 1.0
+  - rule: source_id_present
+    description: primary_source_id must exist in the OSINT Source Registry.
+    dimension: validity
+    threshold: 1.0
+  - rule: no_pii
+    description: pii_present must be false for all curated event records.
+    dimension: compliance
+    threshold: 1.0
+slo:
+  refreshCadence: Every 2 hours
+  availability: 99.5%
+  incidentContact: osint-data-products@example.demo
+
