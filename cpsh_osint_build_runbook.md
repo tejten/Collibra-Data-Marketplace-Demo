@@ -481,26 +481,56 @@ Relate each contract to its Data Set or Data Product if your asset page offers a
 
 ## 18. Configure Marketplace Text and Landing Experience
 
-Use `marketplace_listings.md` for descriptions.
+This step is demo polish. It makes the Data Marketplace landing page look purpose-built for the OSINT use case. It does not affect whether the data basket or access requests work.
 
-Recommended featured collection labels:
+Go to:
 
-- `Crisis Monitoring Starter Kit`
-- `Public Source Trust Framework`
-- `Narrative and Media Signals`
-- `Reference Data for Sanctions and Organizations`
+`Settings` -> `Search` -> `Landing page`
 
-If your CPSH environment supports Data Marketplace landing-page configuration:
+On the `Content` tab, replace the default description with:
 
-1. Go to `Settings` -> `Search` -> Data Marketplace-related settings.
-2. Configure search suggestions:
-   - `infrastructure disruption public reports`
-   - `source reliability score`
-   - `aggregated geospatial event features`
-   - `license restricted media signals`
-3. Configure or simulate featured assets with saved filters if available.
+`Find trusted, governed OSINT data products for mission analysis. Discover curated public-source event feeds, source reliability context, aggregated geospatial features, and restricted-source handling guidance.`
 
-If landing-page configuration is not obvious, skip it. The demo still works through search.
+Then add quick links. Use the `Add` button under `Quick links`.
+
+Recommended quick links:
+
+| Quick link label | Target |
+| --- | --- |
+| `Crisis Monitoring Starter Kit` | Link to `Public Infrastructure Event Feed - Curated`, or a marketplace/search URL for `infrastructure disruption public reports` |
+| `Public Source Trust Framework` | Link to `OSINT Source Registry`, or a marketplace/search URL for `source reliability score` |
+| `Narrative and Media Signals` | Link to `Media Signal Extracts - Entity and Topic`, or a marketplace/search URL for `license restricted media signals` |
+| `Reference Data for Sanctions and Organizations` | Link to `Public Sanctions and Organizations Reference Pack` |
+
+If the quick-link dialog asks for a URL:
+
+1. Open the target asset in another browser tab.
+2. Copy the URL from the browser address bar.
+3. Paste that URL into the quick-link target.
+
+If the quick-link dialog asks for an asset or search result instead of a URL:
+
+1. Search for the asset name.
+2. Select the matching asset.
+3. Save the quick link.
+
+For `Data discovery modules`:
+
+- In CPSH, the UI says this is available on Cloud only.
+- Leave it checked if it is already checked, or uncheck it if you want a cleaner landing page.
+- Do not spend time troubleshooting it in CPSH; it is not important for this demo.
+
+On the `Actions` tab, only make changes if there is an obvious action label you want to customize. The important basket configuration was already handled in:
+
+`Settings` -> `Search` -> `Actions and preview` -> `Data Basket`
+
+Click `Save`.
+
+If the `Save` button remains disabled, make a small description edit, such as adding a period or space, then try again.
+
+Demo line to use:
+
+`The marketplace landing page is tailored to mission workflows, so analysts start from curated OSINT collections instead of hunting through raw tables or source systems.`
 
 ## 19. Smoke Test as Admin
 
