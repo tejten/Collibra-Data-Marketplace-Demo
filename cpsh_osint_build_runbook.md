@@ -532,7 +532,56 @@ Demo line to use:
 
 `The marketplace landing page is tailored to mission workflows, so analysts start from curated OSINT collections instead of hunting through raw tables or source systems.`
 
-## 19. Smoke Test as Admin
+## 19. Create Purpose Assets for Data Privacy
+
+If Data Privacy is active, the data basket workflow may show a task named `Add Purpose to the Data Usage`. That task does not accept free-text purpose. It expects the requester to select an existing `Purpose` asset.
+
+Create at least one `Purpose` asset before the Maya smoke test.
+
+Recommended Purpose asset:
+
+| Field | Value |
+| --- | --- |
+| Asset type | `Purpose` |
+| Name | `Regional infrastructure disruption brief for crisis response planning` |
+| Domain | `OSINT Governance and Contracts` |
+| Community | `Open Source Intelligence Demo` |
+| Status | `Accepted` |
+| Description | `Approved demo purpose for requesting curated and aggregated OSINT data products to support a regional infrastructure disruption brief.` |
+
+Steps as Admin:
+
+1. Click the global `+` create icon.
+2. Choose an asset creation option.
+3. Select asset type `Purpose`.
+4. Select domain `OSINT Governance and Contracts`.
+5. Enter the name `Regional infrastructure disruption brief for crisis response planning`.
+6. Set status to `Accepted`.
+7. Add the description above.
+8. Save.
+9. On the Purpose asset's `Responsibilities` tab, confirm `OSINT Marketplace Consumers` can view it. If not, add `OSINT Marketplace Consumers` as `Stakeholder` or `Requester`, or rely on inherited domain/community view permissions.
+
+Optional extra Purpose assets:
+
+- `Source reliability assessment for mission planning`
+- `Aggregated geospatial situation awareness`
+- `Restricted source validation under privacy review`
+
+When Maya gets the `Add Purpose to the Data Usage` task:
+
+1. Open the task panel.
+2. In `Purpose *`, start typing `Regional infrastructure`.
+3. Select the Purpose asset.
+4. Submit.
+
+If the dropdown says `No results found`:
+
+1. Confirm a `Purpose` asset exists.
+2. Confirm the status is `Accepted`.
+3. Confirm Maya or `OSINT Marketplace Consumers` can view the Purpose asset.
+4. Refresh the Data Usage page and try typing the first few words again.
+
+## 20. Smoke Test as Admin
 
 As Admin:
 
@@ -549,7 +598,7 @@ As Admin:
 6. Search for `Raw Public Web Mentions - Restricted`.
 7. Confirm the restricted governance contrast asset appears if you included its status in Data Marketplace scope.
 
-## 20. Smoke Test as Maya
+## 21. Smoke Test as Maya
 
 Open an incognito/private browser or sign out and sign in as `maya.chen`.
 
@@ -565,11 +614,12 @@ Open an incognito/private browser or sign out and sign in as `maya.chen`.
    - `Geospatial Situation Features - Aggregated`
 7. Open the data basket icon.
 8. Click `Check out Data Basket`.
-9. Use this purpose:
+9. Use this free-text purpose in the checkout form if prompted:
    - `Regional infrastructure disruption brief for crisis response planning`
 10. Use this intended use:
    - `Analytic reporting and dashboarding; no individual profiling`
 11. Submit.
+12. If a task named `Add Purpose to the Data Usage` appears, select the Purpose asset named `Regional infrastructure disruption brief for crisis response planning` and submit it.
 
 Expected result:
 
@@ -577,7 +627,7 @@ Expected result:
 - A Data Usage asset is created automatically.
 - An approval task appears for the owner/steward depending on workflow configuration.
 
-## 21. Smoke Test as Jordan or Rafael
+## 22. Smoke Test as Jordan or Rafael
 
 Sign in as `jordan.lee` or `rafael.ortiz`.
 
@@ -595,7 +645,7 @@ If no task appears:
 4. Confirm `maya.chen` has workflow start permissions.
 5. Confirm Data Basket is enabled and restricted to the correct scope.
 
-## 22. Recommended Demo Script
+## 23. Recommended Demo Script
 
 Use `presenter_script.md`.
 
@@ -611,7 +661,7 @@ Short version:
 8. Switch to steward/product owner and approve.
 9. Close: Collibra gives analysts speed, stewards control, leaders trusted and explainable data.
 
-## 23. Troubleshooting
+## 24. Troubleshooting
 
 Problem: `Add to Basket` is not visible.
 
@@ -647,7 +697,15 @@ Problem: No approval task appears.
 - Sign in as the owner, not just the steward.
 - Check workflow status from the Data Usage asset or workflow/admin pages.
 
-## 24. Keep the Demo Safe
+Problem: `Add Purpose to the Data Usage` shows `No results found`.
+
+- Create a `Purpose` asset as described in section 19.
+- Confirm the Purpose asset is in status `Accepted`.
+- Confirm the requester can view the Purpose asset.
+- Refresh the Data Usage page and start typing the Purpose asset name.
+- Remember that this workflow field selects a Purpose asset; it is not a free-text field.
+
+## 25. Keep the Demo Safe
 
 Use this sentence if the customer asks about OSINT risk:
 
@@ -655,7 +713,7 @@ Use this sentence if the customer asks about OSINT risk:
 
 Do not position the demo as individual tracking, person-level targeting, or raw public-web surveillance.
 
-## 25. Official Reference Links
+## 26. Official Reference Links
 
 - CPSH users, roles, permissions: https://productresources.collibra.com/docs/cpsh/latest/Content/Settings/UsersAndGroups/co_user-roles-permissions.htm
 - Create user: https://productresources.collibra.com/docs/collibra/latest/Content/Settings/UsersAndGroups/Users/ta_create-user.htm
