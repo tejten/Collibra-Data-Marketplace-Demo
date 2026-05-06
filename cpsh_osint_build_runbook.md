@@ -206,11 +206,11 @@ If Collibra shows a warning that a group has a responsibility but lacks view per
 3. Add or update the view permissions for that group.
 4. Reopen the asset as a non-admin user to verify visibility.
 
-## 9. Create Tags for Handling Caveats
+## 9. Plan Tags for Handling Caveats
 
-Open the Stewardship app if available, then go to `Tags`. If the Tags page is not obvious, you can also add tags from an asset page after creating assets.
+In Collibra, new tags are created from an asset page, not from the Stewardship `Tags` overview page. The `Tags` page lets you view, edit, merge, and delete tags after at least one asset uses them.
 
-Create these tags:
+For now, keep this list ready. You will add each tag when you create or edit the related Data Set assets in section 13.
 
 - `PUBLIC`
 - `PUBLIC_METADATA`
@@ -228,6 +228,24 @@ Create these tags:
 - `RESTRICTED`
 
 These are demo governance labels. Use tags first; do not customize the classification model unless you specifically want to demonstrate data classification.
+
+How to add the first tag:
+
+1. Create or open an asset, for example `Public Infrastructure Event Feed - Curated`.
+2. Click the asset edit/pencil action.
+3. Find the `Tags` field or tag section.
+4. Type a tag name such as `PUBLIC`.
+5. Press Enter or select `Create PUBLIC`.
+6. Save the asset.
+7. Return to Stewardship -> `Tags`; the tag should now appear in the overview.
+
+If the `Tags` field is missing or read-only:
+
+1. Go to `Settings` -> `Roles and permissions` -> `Global permissions`.
+2. Find `Tags`.
+3. Enable the tag update/manage permission for the resource roles you are using, such as `Owner`, `Business Steward`, or `Data Steward`.
+4. Confirm the user also has view access to the asset's community or domain.
+5. Reopen the asset and try again.
 
 ## 10. Configure Data Marketplace Scope
 
@@ -559,4 +577,3 @@ Do not position the demo as individual tracking, person-level targeting, or raw 
 - Data Marketplace scope: https://productresources.collibra.com/docs/cpsh/latest/Content/DataMarketplace/ta_conf-scope.htm
 - Data basket access requests: https://productresources.collibra.com/docs/collibra/latest/Content/Catalog/DataSets/ta_request-access-to-data-set.htm
 - Data basket in Data Marketplace: https://productresources.collibra.com/docs/collibra/latest/Content/DataMarketplace/co_s4d-add-to-data-basket.htm
-
