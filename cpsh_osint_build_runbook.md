@@ -336,9 +336,11 @@ For each asset:
 3. Attach the relevant sample CSV from `sample_data/`.
 4. Add a note such as `Synthetic demo data only`.
 
-## 14. Optional but Recommended: Create Technical Tables and Columns
+## 14. Create Technical Tables, Columns, and Data Elements
 
-This makes the marketplace demo more realistic and helps with workflows that expect data elements.
+This step is required if you want the out-of-the-box `Request Assets Access` workflow to complete. The workflow rejects a basket that contains Data Sets with no Data Elements and shows an error like:
+
+`Cannot request access when Data Basket is empty or only contains empty Data Sets.`
 
 Create these `Table` assets in `OSINT Technical Sample Assets`:
 
@@ -358,14 +360,38 @@ Create a few `Column` assets under each table or in the same domain:
 | `osint_media_signal_extracts` | `signal_id`, `event_id`, `entity_text`, `entity_type`, `topic`, `extraction_confidence` |
 | `osint_geospatial_aggregates` | `grid_id`, `region`, `date`, `event_count`, `hazard_score`, `aggregation_level` |
 
-Then relate the requestable Data Sets to their columns:
+Fast path:
+
+1. Import `collibra_import/05_technical_tables.csv` into `OSINT Technical Sample Assets`.
+2. Import `collibra_import/06_columns.csv` into `OSINT Technical Sample Assets`.
+3. Attach the sample CSV files to the matching table assets if you want visible source data.
+
+Then relate the requestable Data Sets to their columns. This is the important part for the basket workflow:
 
 1. Open the Data Set asset.
-2. Find a section such as `Data Elements`, `Contains`, or `Related Assets`.
-3. Add the relevant Column assets.
-4. Save.
+2. Go to `Summary` -> `Data Elements`.
+3. Click the `+` icon in the `Data Elements` section.
+4. Search for and select the relevant `Column` assets.
+5. Save or add the relation.
 
-If your environment does not show that section, skip this for now and rely on attachments/descriptions. Return to it only if data basket checkout complains about missing data elements.
+Minimum Data Element links for the demo:
+
+| Requestable Data Set | Add these Column assets as Data Elements |
+| --- | --- |
+| `Public Infrastructure Event Feed - Curated` | `event_id`, `event_date`, `region`, `event_type`, `severity`, `confidence`, `primary_source_id` from `osint_public_event_feed` |
+| `OSINT Source Registry` | `source_id`, `source_name`, `source_category`, `license_family`, `allowed_use`, `source_reliability_score` from `osint_source_registry` |
+| `Source Reliability Scorecard` | `source_id`, `source_name`, `source_reliability_score`, `last_reviewed` from `osint_source_registry` |
+| `Geospatial Situation Features - Aggregated` | `grid_id`, `region`, `date`, `event_count`, `hazard_score`, `aggregation_level` from `osint_geospatial_aggregates` |
+| `Media Signal Extracts - Entity and Topic` | `signal_id`, `event_id`, `entity_text`, `entity_type`, `topic`, `extraction_confidence` from `osint_media_signal_extracts` |
+
+If the picker does not show columns:
+
+1. Confirm the `Column` assets were imported.
+2. Confirm they are in status `Accepted`.
+3. Confirm you can view them in `OSINT Technical Sample Assets`.
+4. Try adding from the Data Set's `Data Elements` section rather than a generic relation table.
+
+After adding Data Elements, clear or abandon the failed basket/Data Usage and start a fresh checkout as Maya.
 
 ## 15. Create Data Product Wrappers
 
@@ -688,7 +714,7 @@ Problem: Checkout fails.
 - Confirm participants have `Workflows > Participate in workflow`.
 - Confirm the packaged access workflow is enabled.
 - Confirm requestable Data Sets have owners.
-- If the workflow expects data elements, relate Column assets to the Data Sets.
+- If the error says `Cannot request access when Data Basket is empty or only contains empty Data Sets`, add Column assets to each requested Data Set's `Data Elements` section as described in section 14, then start a fresh basket checkout.
 
 Problem: No approval task appears.
 
