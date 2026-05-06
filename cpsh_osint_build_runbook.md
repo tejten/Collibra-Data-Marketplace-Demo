@@ -441,6 +441,31 @@ For each key marketplace Data Set, add related terms:
 | `Geospatial Situation Features - Aggregated` | `Aggregation Level`, `No Raw Personal Data`, `Purpose Limitation` |
 | `Raw Public Web Mentions - Restricted` | `Purpose Limitation`, `Handling Caveat`, `Sensitive Analytic Inference` |
 
+Where to enter related terms in the current UI:
+
+1. Open the marketplace `Data Set` asset, for example `Public Infrastructure Event Feed - Curated`.
+2. Open `Summary`.
+3. In the left-side section list, stay on `Overview`.
+4. Scroll to `Details`.
+5. Find `related to Business Asset`.
+6. Click the `+` icon next to `related to Business Asset`.
+7. Search for a glossary term, for example `Publicly Available Information`.
+8. Select the matching `Business Term` from `OSINT Business Glossary`.
+9. Save or add the relation.
+10. Repeat for the rest of the related terms.
+
+For `Public Infrastructure Event Feed - Curated`, add:
+
+- `Publicly Available Information`
+- `Corroboration Count`
+- `Source Reliability Score`
+- `Mission Purpose`
+- `No Raw Personal Data`
+
+After adding terms, the `related to Business Asset` table should show the selected glossary terms instead of the message `Be the first to add a relation using the plus icon (+)`.
+
+If Collibra asks for relation direction, keep the default direction if it reads like `Data Set related to Business Asset`. The goal is simply to make the glossary terms visible from the marketplace asset.
+
 ## 17. Create Data Contract Assets
 
 Create these as `Data Contract` assets in `OSINT Governance and Contracts`:
