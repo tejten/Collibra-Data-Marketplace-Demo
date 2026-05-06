@@ -370,9 +370,14 @@ Then relate the requestable Data Sets to their columns. This is the important pa
 
 1. Open the Data Set asset.
 2. Go to `Summary` -> `Data Elements`.
-3. Click the `+` icon in the `Data Elements` section.
-4. Search for and select the relevant `Column` assets.
-5. Save or add the relation.
+3. If the section says `Nothing to See Here`, scroll to the top of the `Summary` page and turn on `Show empty optional values`.
+4. Return to the `Data Elements` section.
+5. Look for an empty relation table such as `contains Data Element`, `has Data Element`, or similar wording.
+6. Click the `+` icon on that Data Elements relation table.
+7. Search for and select the relevant `Column` assets.
+8. Save or add the relation.
+
+Important: Do not use the `+` next to `related to Business Asset` for this workflow fix. That relation is for glossary terms. The access workflow needs `Column` assets in the `Data Elements` section.
 
 Minimum Data Element links for the demo:
 
@@ -389,7 +394,9 @@ If the picker does not show columns:
 1. Confirm the `Column` assets were imported.
 2. Confirm they are in status `Accepted`.
 3. Confirm you can view them in `OSINT Technical Sample Assets`.
-4. Try adding from the Data Set's `Data Elements` section rather than a generic relation table.
+4. Turn on `Show empty optional values` on the Data Set page.
+5. Try adding from the Data Set's `Data Elements` section rather than a generic relation table.
+6. If the Data Elements section still does not show any addable relation, open the `Diagram` tab and use the diagram's add-relation action to connect the Data Set to the Column assets.
 
 After adding Data Elements, clear or abandon the failed basket/Data Usage and start a fresh checkout as Maya.
 
