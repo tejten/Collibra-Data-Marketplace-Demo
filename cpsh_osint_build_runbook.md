@@ -232,20 +232,26 @@ These are demo governance labels. Use tags first; do not customize the classific
 How to add the first tag:
 
 1. Create or open an asset, for example `Public Infrastructure Event Feed - Curated`.
-2. Click the asset edit/pencil action.
-3. Find the `Tags` field or tag section.
-4. Type a tag name such as `PUBLIC`.
-5. Press Enter or select `Create PUBLIC`.
-6. Save the asset.
-7. Return to Stewardship -> `Tags`; the tag should now appear in the overview.
+2. In the latest UI, do not look for a page-level pencil. Asset pages use inline editing.
+3. Click the circular `i` icon near the top-right of the asset page to open the `At a glance` sidebar.
+4. Find `Tags` in the sidebar.
+5. Click the add or edit control in the `Tags` section.
+6. Type a tag name such as `PUBLIC`.
+7. Press Enter or select `Create PUBLIC`.
+8. Save or click away if the value saves inline.
+9. Return to Stewardship -> `Tags`; the tag should now appear in the overview.
 
 If the `Tags` field is missing or read-only:
 
-1. Go to `Settings` -> `Roles and permissions` -> `Global permissions`.
-2. Find `Tags`.
-3. Enable the tag update/manage permission for the resource roles you are using, such as `Owner`, `Business Steward`, or `Data Steward`.
-4. Confirm the user also has view access to the asset's community or domain.
-5. Reopen the asset and try again.
+1. Confirm the `At a glance` sidebar is open by clicking the circular `i` icon.
+2. Go to `Settings` -> `Roles and permissions` -> `Global permissions`.
+3. Find `Tags`.
+4. Enable the tag add/update/remove permission for the resource roles you are using, such as `Owner`, `Business Steward`, or `Data Steward`.
+5. Confirm your user or group has one of those responsibilities on the asset, domain, or community.
+6. Confirm the user also has view access to the asset's community or domain.
+7. Reopen the asset and try again.
+
+If tags still do not appear, skip them for the first demo. They are useful labels, but they are not required for Data Marketplace search, the data basket, responsibilities, glossary links, or access-request flow.
 
 ## 10. Configure Data Marketplace Scope
 
