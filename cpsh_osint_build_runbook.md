@@ -614,7 +614,69 @@ If the dropdown says `No results found`:
 3. Confirm Maya or `OSINT Marketplace Consumers` can view the Purpose asset.
 4. Refresh the Data Usage page and try typing the first few words again.
 
-## 20. Smoke Test as Admin
+## 20. Grant Permissions on the Data Usages Domain
+
+The data basket workflow creates `Data Usage` assets in the packaged domain:
+
+`Business Analysts Community` -> `Data Usages`
+
+In some CPSH environments, this domain appears in the UI as:
+
+`Business Analysts Community` -> `New Data Sets`
+
+The domain type may still say `Data Usage Registry`.
+
+Your OSINT users may have permissions on the `Open Source Intelligence Demo` community, but not on this packaged `Data Usages` domain. If approvers cannot comment or complete approval tasks, grant them responsibilities here.
+
+As Admin:
+
+1. Open `Business Analysts Community`.
+2. Open the `Data Usages` domain. If you do not see that exact name, open `New Data Sets`.
+3. Go to `Responsibilities`.
+4. Add these responsibilities:
+
+| Group | Resource role |
+| --- | --- |
+| `OSINT Marketplace Consumers` | `Requester` or `Stakeholder` |
+| `OSINT Product Owners` | `Owner` |
+| `OSINT Data Stewards` | `Data Steward` or `Business Steward` |
+| `OSINT Privacy Reviewers` | `Reviewer` |
+| `OSINT Demo Admins` | `Community Manager` or `Owner` |
+
+5. Confirm the groups have view permission on the domain.
+6. If there is a separate comment permission in your resource roles, make sure `Owner`, `Data Steward`, and `Reviewer` can add comments.
+
+Why this matters:
+
+- Maya creates the Data Usage.
+- Jordan/Rafael approve the Data Usage.
+- The workflow stores approval/rejection reasons on the Data Usage.
+- If the approver can see the task but cannot update/comment on the Data Usage, the task can fail with `Unexpected error` when approving.
+
+If you already have a failed Data Usage in `Approval Pending`, try approval again after changing permissions. If it still fails, create a fresh basket request as Maya and approve the new Data Usage.
+
+If the `Assets` tab says `No matching items`:
+
+- Do not worry about it for the permission fix. You can still add responsibilities on the domain's `Responsibilities` tab.
+- Click the filter icon on the asset table and clear filters.
+- Try `Select view` and choose an all-assets/default view if available.
+- Open the Data Usage directly from the task panel instead: click the blue link next to `Related to DU 2026-05-06 #1`.
+- If global search does not show the Data Usage, that is often just a search-scope or permission/view issue; the workflow task link is the reliable path.
+
+Before approving a Data Usage, also check required fields:
+
+1. Open the Data Usage asset.
+2. In `Summary` -> `Overview`, check `Description *`.
+3. If it is empty, add:
+
+`Access request for curated OSINT data products supporting a regional infrastructure disruption brief.`
+
+4. Save the inline edit.
+5. Retry approval.
+
+Some environments enforce required attributes during workflow transitions. An empty `Description *` can cause approval to fail even when the task itself is visible.
+
+## 21. Smoke Test as Admin
 
 As Admin:
 
@@ -631,7 +693,7 @@ As Admin:
 6. Search for `Raw Public Web Mentions - Restricted`.
 7. Confirm the restricted governance contrast asset appears if you included its status in Data Marketplace scope.
 
-## 21. Smoke Test as Maya
+## 22. Smoke Test as Maya
 
 Open an incognito/private browser or sign out and sign in as `maya.chen`.
 
@@ -660,7 +722,7 @@ Expected result:
 - A Data Usage asset is created automatically.
 - An approval task appears for the owner/steward depending on workflow configuration.
 
-## 22. Smoke Test as Jordan or Rafael
+## 23. Smoke Test as Jordan or Rafael
 
 Sign in as `jordan.lee` or `rafael.ortiz`.
 
@@ -678,7 +740,64 @@ If no task appears:
 4. Confirm `maya.chen` has workflow start permissions.
 5. Confirm Data Basket is enabled and restricted to the correct scope.
 
-## 23. Recommended Demo Script
+## 24. Confirm the Correct Access Workflow
+
+If approval fails with a server log like:
+
+`definition 'RequestDataSetsAccess:1:...'`
+
+or:
+
+`MissingPropertyException: No such property: FindUsersRequest`
+
+then the deployed access workflow definition is incompatible with this CPSH runtime. This is not a responsibility or comment-permission problem.
+
+The current workflow should be:
+
+`Request Assets Access`
+
+Important nuance: in some Collibra environments, the visible workflow name is `Request Assets Access`, but the underlying BPMN/process key in the logs still appears as `RequestDataSetsAccess`. If you do not see a separate workflow named `Request Data Sets Access`, open the visible `Request Assets Access` definition and treat it as the one that needs updating.
+
+As Admin:
+
+1. Go to `Settings` -> `Workflows`.
+2. Open `Definitions`.
+3. Open `Request Assets Access`.
+4. Confirm it is enabled.
+5. Confirm `Applies to` includes asset type `Data Usage`.
+6. Confirm the workflow is not limited to the wrong community or domain.
+7. Save.
+
+If approval still fails with `FindUsersRequest`, replace the deployed definition:
+
+1. Download or back up the existing `Request Assets Access` workflow definition if the UI offers that option.
+2. Get the latest out-of-the-box workflows package for your exact CPSH version.
+3. Deploy or upload the current `Request Assets Access` workflow definition from that package.
+4. Enable the new definition.
+5. Configure it so `Applies to` includes `Data Usage`.
+6. If a duplicate or older access workflow remains enabled, disable the older one.
+
+Advanced patch option if you cannot obtain the OOTB package:
+
+1. Download the current `Request Assets Access` BPMN/XML definition.
+2. Search the BPMN XML for `FindUsersRequest`.
+3. If the script uses `FindUsersRequest` without importing it, add the missing Groovy import in that script block:
+
+`import com.collibra.dgc.core.api.dto.user.FindUsersRequest`
+
+4. Re-upload the patched BPMN as a replacement or new workflow definition.
+
+Only use the patch option if you are comfortable editing workflow XML. For a demo, the safer answer is usually to deploy the correct OOTB workflow package or stop at the visible `Approval Pending` control point.
+
+Important: after changing workflow deployments, abandon the old failed `Data Usage` request and create a fresh basket request as Maya. Existing requests keep the workflow definition they already started with.
+
+Emergency demo fallback:
+
+- Stop at `Approval Pending` and explain that the approver task is visible.
+- Show the pending `Data Usage` asset with requested assets, purpose, dates, and owner review.
+- Say: `In a clean deployment with the current Request Assets Access workflow, this approval transitions the Data Usage to accepted/access granted. This CPSH image is still bound to the legacy Request Data Sets Access workflow, so I am showing the approval control point rather than forcing a broken legacy script.`
+
+## 25. Recommended Demo Script
 
 Use `presenter_script.md`.
 
@@ -694,7 +813,7 @@ Short version:
 8. Switch to steward/product owner and approve.
 9. Close: Collibra gives analysts speed, stewards control, leaders trusted and explainable data.
 
-## 24. Troubleshooting
+## 26. Troubleshooting
 
 Problem: `Add to Basket` is not visible.
 
@@ -730,6 +849,17 @@ Problem: No approval task appears.
 - Sign in as the owner, not just the steward.
 - Check workflow status from the Data Usage asset or workflow/admin pages.
 
+Problem: Approval task says `Unexpected error` when clicking `Approve`.
+
+- If server logs mention `RequestDataSetsAccess` or `FindUsersRequest`, switch to the current `Request Assets Access` workflow as described in section 24. Permissions will not fix an incompatible workflow script.
+- Check whether the Data Usage has an empty required `Description *`. If it is empty, add `Access request for curated OSINT data products supporting a regional infrastructure disruption brief.`
+- Open the Data Usage asset and check whether the approver can comment. If the page says `You don't have permission to comment`, fix permissions on `Business Analysts Community` -> `Data Usages`.
+- Add `OSINT Product Owners` as `Owner` on the `Data Usages` domain.
+- Add `OSINT Data Stewards` as `Data Steward` or `Business Steward` on the `Data Usages` domain.
+- Add `OSINT Marketplace Consumers` as `Requester` or `Stakeholder` on the `Data Usages` domain.
+- Confirm all groups have view permission.
+- Retry the approval. If the existing workflow remains stuck, create a fresh basket request.
+
 Problem: `Add Purpose to the Data Usage` shows `No results found`.
 
 - Create a `Purpose` asset as described in section 19.
@@ -738,7 +868,7 @@ Problem: `Add Purpose to the Data Usage` shows `No results found`.
 - Refresh the Data Usage page and start typing the Purpose asset name.
 - Remember that this workflow field selects a Purpose asset; it is not a free-text field.
 
-## 25. Keep the Demo Safe
+## 27. Keep the Demo Safe
 
 Use this sentence if the customer asks about OSINT risk:
 
@@ -746,7 +876,7 @@ Use this sentence if the customer asks about OSINT risk:
 
 Do not position the demo as individual tracking, person-level targeting, or raw public-web surveillance.
 
-## 26. Official Reference Links
+## 28. Official Reference Links
 
 - CPSH users, roles, permissions: https://productresources.collibra.com/docs/cpsh/latest/Content/Settings/UsersAndGroups/co_user-roles-permissions.htm
 - Create user: https://productresources.collibra.com/docs/collibra/latest/Content/Settings/UsersAndGroups/Users/ta_create-user.htm
@@ -760,3 +890,5 @@ Do not position the demo as individual tracking, person-level targeting, or raw 
 - Data Marketplace scope: https://productresources.collibra.com/docs/cpsh/latest/Content/DataMarketplace/ta_conf-scope.htm
 - Data basket access requests: https://productresources.collibra.com/docs/collibra/latest/Content/Catalog/DataSets/ta_request-access-to-data-set.htm
 - Data basket in Data Marketplace: https://productresources.collibra.com/docs/collibra/latest/Content/DataMarketplace/co_s4d-add-to-data-basket.htm
+- Catalog workflows: https://productresources.collibra.com/docs/cpsh/latest/Content/Catalog/CatalogWorkflows/ref_catalog-workflows.htm
+- Out-of-the-box workflow deployments: https://productresources.collibra.com/docs/cpsh/latest/Content/Workflows/ManageWorkflows/co_about-ootb-wf-deployment.htm
