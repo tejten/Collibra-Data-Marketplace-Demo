@@ -14,6 +14,41 @@ Collibra Data Marketplace becomes the mission storefront:
 4. A data steward reviews the request, confirms permitted use, and routes approval based on policy tags such as `PUBLIC`, `LICENSE_RESTRICTED`, `AGGREGATED`, and `NO_RAW_PERSONAL_DATA`.
 5. The analyst uses only approved, curated products in a notebook or dashboard, with provenance and auditability preserved.
 
+## Plain-English Concepts
+
+Think of the marketplace like a restaurant.
+
+| Collibra concept | Restaurant analogy | What it means in this demo |
+| --- | --- | --- |
+| Data Product | The menu item | The business-facing package analysts understand and shop for, such as `Public Infrastructure Event Feed Product`. |
+| Data Product Port | The serving window or pickup counter | The access doorway that explains how consumers get the product, such as `Public Infrastructure Event Feed Output Port` with `UI` access instructions. |
+| Data Set or Table | The actual dish being served | The real requestable or technical data behind the product, such as `Public Infrastructure Event Feed - Curated` or `osint_public_event_feed`. |
+| Data Contract | The order promise and kitchen standard | The rules for what the product contains, quality expectations, refresh expectations, and usage limits. |
+
+In the OSINT demo:
+
+```text
+Data Product:
+Public Infrastructure Event Feed Product
+= the business-friendly package
+
+Data Product Port:
+Public Infrastructure Event Feed Output Port
+= the access doorway / serving counter
+
+Data Set or Table:
+Public Infrastructure Event Feed - Curated / osint_public_event_feed
+= the actual data being served
+
+Data Contract:
+Public Infrastructure Event Feed Contract
+= the rules and promise for that data
+```
+
+Simple demo line:
+
+`The Data Product is what the analyst shops for, the Port is how they access it, and the Contract is the promise that defines what they will receive and under what rules.`
+
 ## Demo Personas
 
 | Persona | Role | What they care about |
@@ -88,4 +123,3 @@ Collibra Data Marketplace becomes the mission storefront:
 ## Safety Positioning
 
 This demo intentionally uses synthetic data and emphasizes aggregated, curated, and purpose-bound access. Avoid positioning the marketplace as a tool for identifying, tracking, or profiling private individuals. The strongest agency story is responsible OSINT: provenance, lawful use, source quality, minimization, auditability, and reuse.
-

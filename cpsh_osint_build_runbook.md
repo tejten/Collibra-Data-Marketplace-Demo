@@ -16,6 +16,34 @@ The finished demo should show:
 - A data basket checkout request.
 - A steward/product-owner approval task.
 
+## 0.1 Plain-English Concepts
+
+Think of the marketplace like a restaurant.
+
+| Collibra concept | Restaurant analogy | What it means in this demo |
+| --- | --- | --- |
+| Data Product | The menu item | The business-facing package analysts understand and shop for, such as `Public Infrastructure Event Feed Product`. |
+| Data Product Port | The serving window or pickup counter | The access doorway that explains how consumers get the product, such as `Public Infrastructure Event Feed Output Port` with `UI` access instructions. |
+| Data Set or Table | The actual dish being served | The real requestable or technical data behind the product, such as `Public Infrastructure Event Feed - Curated` or `osint_public_event_feed`. |
+| Data Contract | The order promise and kitchen standard | The rules for what the product contains, quality expectations, refresh expectations, and usage limits. |
+
+Demo chain:
+
+```text
+Public Infrastructure Event Feed Product
+  exposes data as
+Public Infrastructure Event Feed Output Port
+  is implemented as
+osint_public_event_feed
+
+Public Infrastructure Event Feed Contract
+  defines the promise and rules for the data
+```
+
+Simple demo line:
+
+`The Data Product is what the analyst shops for, the Port is how they access it, and the Contract is the promise that defines what they will receive and under what rules.`
+
 ## 1. Preflight
 
 1. Sign in as `Admin`.
